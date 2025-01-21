@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="submit_assignment.jsp" method="post" enctype="multipart/form-data">
+
+        <h2>Submit Assignment</h2>
+        <label for="student_id">Student ID:</label>
+        <input type="number" id="student_id" name="t1" required><br><br>
+    
+        <label for="assignment_name">Assignment Name:</label>
+        <input type="text" id="assignment_name" name="t2" required><br><br>
+    
+        <label for="file">Upload Assignment (PDF only):</label>
+        <input type="file" id="file" name="file" accept="application/pdf" required><br><br>
+    
+        <input type="submit" value="Submit Assignment">
+    </form>
+    
+</body>
+</html>

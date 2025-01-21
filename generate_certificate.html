@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Certificate</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .certificate-container {
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            padding: 40px;
+            border: 2px solid #golden;
+            border-radius: 10px;
+            background-color: #fff;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .certificate-title {
+            color: #2c3e50;
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .certificate-content {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .student-name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 20px 0;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        .course-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #34495e;
+            margin: 10px 0;
+        }
+
+        .completion-date {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin: 10px 0;
+        }
+
+        .issued-by {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin: 10px 0;
+        }
+
+        .seal-container {
+            position: absolute;
+            left: 40px;
+            bottom: 40px;
+        }
+
+        .seal {
+            width: 120px;
+            height: auto;
+        }
+
+        .signature-container {
+            position: absolute;
+            right: 40px;
+            bottom: 40px;
+            text-align: center;
+        }
+
+        .signature-line {
+            width: 200px;
+            border-bottom: 2px solid #34495e;
+            margin-bottom: 10px;
+        }
+
+        .signature-name {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+
+        .certificate-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: -1;
+            background-image: url('https://via.placeholder.com/500?text=Background+Pattern');
+            background-repeat: repeat;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+        }
+
+        .input-container input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .input-container label {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 600px) {
+            .certificate-container {
+                padding: 20px;
+            }
+
+            .certificate-title {
+                font-size: 28px;
+            }
+
+            .student-name {
+                font-size: 24px;
+            }
+
+            .course-name {
+                font-size: 20px;
+            }
+
+            .seal-container, .signature-container {
+                position: static;
+                margin-top: 20px;
+            }
+
+            .seal {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="input-container">
+        <label for="student-name-input">Student Name: &nbsp; &nbsp; &nbsp; </label>
+        <input type="text" id="student-name-input" placeholder="Enter Student Name" oninput="updateCertificate()">
+    </div>
+
+    <div class="input-container">
+        <label for="course-name-input">Course Name:  &nbsp; &nbsp; &nbsp; &nbsp;</label>
+        <input type="text" id="course-name-input" placeholder="Enter Course Name" oninput="updateCertificate()">
+    </div>
+
+    <div class="input-container">
+        <label for="completion-date-input">Completion Date:  &nbsp;</label>
+        <input type="text" id="completion-date-input" placeholder="Enter Completion Date" oninput="updateCertificate()">
+    </div>
+
+    <div class="input-container">
+        <label for="issued-by-input">Issued By: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+        <input type="text" id="issued-by-input" placeholder="Enter Issued By" oninput="updateCertificate()">
+    </div>
+
+    <div class="input-container">
+        <label for="signature-name-input">Signature Name:  &nbsp; &nbsp;</label>
+        <input type="text" id="signature-name-input" placeholder="Enter Signature Name" oninput="updateCertificate()">
+    </div>
+
+    <div class="certificate-container" id="certificate">
+        <div class="certificate-background"></div>
+        <img src="assets/images/logo-removebg-preview.png" style="height: 150px; width: 300px;" alt="Logo" class="logo">
+        <h1 class="certificate-title">Certificate of Completion</h1>
+        <div class="certificate-content">
+            <p>This is to certify that</p>
+            <p class="student-name" id="student-name">[Student Name]</p>
+            <p>has successfully completed the course</p>
+            <p class="course-name" id="course-name">[Course Name]</p>
+            <p>on</p>
+            <p class="completion-date" id="completion-date">[Completion Date]</p>
+            <p class="issued-by">Issued by: <span id="issued-by">[Your Institution Name]</span></p>
+        </div>
+        <div class="seal-container">
+            <img src="assets/images/1-removebg-preview.png" style="height: 300px; width: 300px;" alt="Official Seal" class="seal">
+        </div>
+        <div class="signature-container">
+            <div class="signature-line">
+            <p class="signature-name" id="signature-name">[Signature Name]</p></div>
+        </div>
+    </div>
+
+    <button class="download-btn" id="downloadBtn" onclick="downloadCertificate()">Download Certificate</button>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script>
+        function updateCertificate() {
+            const studentName = document.getElementById('student-name-input').value || '[Student Name]';
+            const courseName = document.getElementById('course-name-input').value || '[Course Name]';
+            const completionDate = document.getElementById('completion-date-input').value || '[Completion Date]';
+            const issuedBy = document.getElementById('issued-by-input').value || '[Your Institution Name]';
+            const signatureName = document.getElementById('signature-name-input').value || '[Signature Name]';
+            
+            document.getElementById('student-name').innerText = studentName;
+            document.getElementById('course-name').innerText = courseName;
+            document.getElementById('completion-date').innerText = completionDate;
+            document.getElementById('issued-by').innerText = issuedBy;
+            document.getElementById('signature-name').innerText = signatureName;
+        }
+
+        function downloadCertificate() {
+            html2canvas(document.querySelector("#certificate")).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'certificate.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>

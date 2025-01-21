@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            background-image: url('./assets/images/back.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            color: #171816;
+        }
+        .nav-link {
+            font-weight: bolder;
+            color: deeppink;
+            text-decoration: none;
+            margin-left: 10%;
+            float: right;
+        }
+        .nav-link:hover {
+            color: rgb(38, 22, 80);
+            text-decoration: underline;
+        }
+        .down-content {
+            height: 250px;
+        }
+        .section-heading {
+            margin-top: 9%;
+        }
+        .down-content {
+            background-color: rgb(240, 208, 208) !important;
+        }
+        .login-container {
+            margin-top: 7%;
+        }
+        .login-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 40px;
+        }
+        .login-box h5 {
+            font-weight: bolder;
+            margin-bottom: 20px;
+        }
+        .login-row {
+            margin-bottom: 20px;
+        }
+        .form-control {
+            border-radius: 10px;
+        }
+        .login-row label {
+            font-weight: bold;
+        }
+        .btnroo button {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .btn-success {
+            margin-top: 10px;
+        }
+        .img-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .img-box img {
+            height: 430px;
+            width: 450px;
+            border-radius: 15% 0% 15% 0%;
+        }
+        .form-control {
+            height: 40px;
+            width: 300px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4%;
+        }
+        .form-row .form-group {
+            flex: 1;
+            margin-right: 10px;
+            margin-top: 4%;
+        }
+        .form-row .form-group:last-child {
+            margin-right: 0;
+            margin-top: 4%;
+        }
+        .btn-primary {
+            margin-top: 5%;
+            height: 50px;
+            width: 200px;
+            border-radius: 10% 10%;
+            background-color: rgb(171, 201, 199);
+        }
+        .btn-primary:hover {
+            background-color: pink !important;
+        }
+        label {
+            color: black;
+            font-size: 25px;
+            font-weight: bold
+        }
+        h1 {
+            margin-top: 4%;
+            margin-bottom: 4%;
+            color: rgb(7, 7, 83);
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="container" style="background-color: rgb(180, 226, 235); height: 650px; width: 1000px; margin-top: 10%; border-radius: 10% 8% 5% 3%;">
+            <h1 style="margin-top: 4%; font-size: 50px;">Register Here...</h1>
+            <form id="register-form" action="register_page.jsp" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" name="firstname" id="first-name" class="form-control form-control-sm" pattern="^[a-zA-Z\s]+$" title="First name should only contain letters" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" name="lastname" id="last-name" class="form-control form-control-sm" pattern="^[a-zA-Z\s]+$" title="Last name should only contain letters" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input type="tel" name="phone" id="phone" class="form-control form-control-sm" pattern="^[6-9]\d{9}$" title="Phone number should start with a digit between 6 and 9 and be exactly 10 digits long" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address &nbsp;&nbsp;&nbsp;</label>
+                        <input type="text" name="address" id="address" class="form-control form-control-sm" pattern="^[a-zA-Z0-9\s,.-]+$" title="Address should only contain letters, numbers, spaces, and basic punctuation" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input type="email" name="email" id="email" class="form-control form-control-sm" required>
+                        <small id="emailError" class="text" style="display:none; color:red; font-size: 20px;">Please enter a valid Gmail address (e.g., user@gmail.com).</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password &nbsp;&nbsp;</label>
+                        <input type="password" name="password" id="password" class="form-control form-control-sm" pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$" title="Password must be at least 8 characters long and contain at least one letter, one number, and one special character" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="role" style="font-size: 25px;">Role&nbsp;&nbsp;&nbsp;</label>
+                    <select name="role" id="role" class="form-control form-control-sm" required style="margin-top: 5%;">
+                        <option value="" style="font-size: 15px;">Select Role</option>
+                        <option value="admin" style="font-size: 15px;">Admin</option>
+                        <option value="teacher" style="font-size: 15px;">Teacher</option>
+                        <option value="student" style="font-size: 15px;">Student</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-sm" style="font-size: 25px;">Submit</button>
+                </div>
+            </form>
+        </div>
+    </center>
+
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            var email = document.getElementById('email').value;
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/; 
+            var emailError = document.getElementById('emailError');
+
+            if (!emailPattern.test(email)) {
+                emailError.style.display = 'block';
+                event.preventDefault();
+            } else {
+                emailError.style.display = 'none';
+            }
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

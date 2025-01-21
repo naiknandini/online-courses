@@ -1,0 +1,153 @@
+.meeting-item {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+}
+
+.meeting-item:hover {
+  transform: scale(1.05); /* Scale the card slightly */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+.thumb img {
+  transition: transform 0.3s ease;
+}
+
+.meeting-item:hover .thumb img {
+  transform: scale(1.1); /* Slightly zoom the image */
+}
+
+.price {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for price */
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.meeting-item:hover .price {
+  background-color: rgba(255, 0, 0, 0.8); /* Change background on hover */
+  color: white; /* Change text color on hover */
+}
+.section-heading {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .categories {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .categories ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .categories ul li {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .categories ul li:hover {
+    color: #ff0000; /* Change color on hover for effect */
+    transition: color 0.3s ease;
+  }
+  
+  /* Animation on load */
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .section-heading,
+  .categories {
+    animation: fadeIn 1s forwards; /* Apply fade-in animation */
+  }
+  
+  .categories ul li {
+    animation: fadeIn 1s forwards;
+    animation-delay: calc(var(--i) * 0.1s); /* Stagger the animations */
+  }
+  
+  /* Apply staggered animation to list items */
+  .categories ul li:nth-child(1) { --i: 1; }
+  .categories ul li:nth-child(2) { --i: 2; }
+  .categories ul li:nth-child(3) { --i: 3; }
+  .categories ul li:nth-child(4) { --i: 4; }
+  .categories ul li:nth-child(5) { --i: 5; }
+  .categories ul li:nth-child(6) { --i: 6; }
+  .categories ul li:nth-child(7) { --i: 7; }
+  
+
+  /* General animation settings */
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes accordionReveal {
+    from {
+      max-height: 0;
+      opacity: 0;
+    }
+    to {
+      max-height: 500px;
+      opacity: 1;
+    }
+  }
+  
+  /* Apply animation for text and button */
+  .item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  
+  .main-button-red, .main-button-yellow {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards 0.4s;
+  }
+  
+  .accordion {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    animation: accordionReveal 0.8s ease forwards;
+  }
+  
+  .accordion.is-first-expanded .accordion-body {
+    max-height: 500px;
+    opacity: 1;
+  }
+  
+  /* Accordion animation icon */
+  .accordion-head .icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .accordion-head.active .icon {
+    transform: rotate(90deg);
+  }
+  
+  /* Ensure animations trigger on scroll */
+  .visible {
+    animation-play-state: running;
+  }
+  
+  
